@@ -1,10 +1,18 @@
-/* 基本的なリセットと全体のスタイル */
+/* html と body に高さを設定 */
+html {
+  height: 100%;
+}
+
 body {
-    font-family: 'Arial', sans-serif; /* フォントの指定 */
-    margin: 0;
-    background-color: #2c2f33; /* ダークテーマの背景色 */
-    color: #ffffff; /* 基本のテキスト色 */
-    line-height: 1.6;
+  display: flex; /* body を Flexコンテナにする */
+  flex-direction: column; /* 子要素を縦方向に並べる */
+  min-height: 100vh; /* body の最小高さを画面の高さ(100vh)にする */
+  /* ↓ 既存の body スタイルも残す */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  background-color: #2c2f33;
+  color: #ffffff;
+  line-height: 1.6;
 }
 
 a {
@@ -200,15 +208,24 @@ nav ul .dropdown:hover .dropdown-content {
     color: #dcddde; /* やや明るいグレー */
 }
 
-/* フッター */
+/* main 要素が残りのスペースを埋めるようにする */
+main {
+  flex-grow: 1; /* main 要素が利用可能なスペースを埋めるように伸びる */
+  /* または flex: 1; でも同じ効果 */
+}
+
+/* フッターのスタイル (既存のものを確認・調整) */
 footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 30px;
-    background-color: #23272a;
-    border-top: 1px solid #1c1e21;
-    font-size: 0.9em;
-    color: #8e9297;
+  text-align: center;
+  padding: 20px;
+  /* margin-top: 30px; は削除または auto にしても良い */
+  margin-top: auto; /* mainが伸びることで自動的に下に配置される */
+  background-color: #23272a;
+  border-top: 1px solid #1c1e21;
+  font-size: 0.9em;
+  color: #8e9297;
+  width: 100%; /* 幅が足りない場合に追加 */
+  box-sizing: border-box; /* paddingを含めて幅100%にする場合に追加 */
 }
 
 /* css/style.css に追記 */
